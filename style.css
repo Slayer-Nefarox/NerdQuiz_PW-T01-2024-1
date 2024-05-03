@@ -1,0 +1,40 @@
+body
+{
+	background-color: black;
+	color: white;
+	font-family: verdana;
+	display: flex;
+
+}
+.page
+{
+	display: table;
+	flex:1;
+	border: solid white;
+	align-content: center;
+	flex: auto;
+	height: 100vh;
+	width: 100vh;
+	padding: 20px;
+}
+
+.elements
+{
+	flex:1;
+	border: double cyan;
+	align-content: center;
+	flex: auto;
+	height: 80vh;
+	width: 80vh;
+	padding: 20px;
+}
+.side
+{
+	flex:1;
+	border: solid red;
+	align-content: center;
+	flex: auto;
+	height: vh;
+	width: 20vh;
+	padding: 20px;
+}
