@@ -22,6 +22,7 @@ body
 {
 	flex:1;
 	border: double cyan;
+	box-shadow: inset 0px 0px 10px 10px cyan, 0px 0px 10px 10px
 	align-content: center;
 	flex: auto;
 	height: 80vh;
