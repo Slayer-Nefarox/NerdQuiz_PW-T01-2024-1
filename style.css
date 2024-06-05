@@ -1,41 +1,57 @@
-body
-{
-	background-color: black;
-	color: white;
-	font-family: verdana;
-	display: flex;
-
-}
-.page
-{
-	display: table;
-	flex:1;
-	border: solid white;
-	align-content: center;
-	flex: auto;
-	height: 100vh;
-	width: 100vh;
-	padding: 20px;
+body, html {
+    margin: 10px;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: black;
 }
 
-.elements
-{
-	flex:1;
-	border: double cyan;
-	box-shadow: inset 0px 0px 10px 10px cyan, 0px 0px 10px 10px
-	align-content: center;
-	flex: auto;
-	height: 80vh;
-	width: 80vh;
-	padding: 20px;
+.container {
+    display: flex;
+    height: 100vh;
 }
-.side
-{
-	flex:1;
-	border: solid red;
-	align-content: center;
-	flex: auto;
-	height: vh;
-	width: 20vh;
-	padding: 20px;
+
+.neon{
+    box-shadow: inset 0px 0px 50px cyan, 0px 0px 30px cyan;
+}
+.center {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    flex: 1;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 2%;
+}
+
+.center h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, button {
+    margin: 5px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+}
+
+button {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+input:focus, button:focus {
+    outline: none;
 }
