@@ -166,6 +166,14 @@ body{
   align-items: center;
   color: white;
 }
+
+.correct {
+  border: 2px solid green;
+}
+
+.incorrect {
+  border: 2px solid red;
+}
 .texto{
   display: flex;
   justify-content: center;
