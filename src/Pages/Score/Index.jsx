@@ -1,44 +1,30 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-export default function Score() 
+export default function Quiz() 
 {
-    return (
-        <div className="neon center">
-            <div className = "quiz">
-                <div className = "neon list_row">
-                    <h3>.1:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.2:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.3:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.4:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.5:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.6:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.7:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.8:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.9:</h3>
-                </div>
-                <div className = "neon list_row">
-                    <h3>.10:</h3>
-                </div>
-                <div className="neon resultado">
-                    <Link to={"/Menu"} className='neon button alt'> Menu</Link>
-                </div>
-            </div>
+  return (
+    <div className="neon center">
+      <div className="quiz">
+        <div className="neon questions">
+          <h3>Choose your theme:</h3>
+          <div className="question_row">
+            <Link to={"/mixed_score"} className='neon alt list_row'>Mixed</Link>
+            <Link to={"/devops_score"} className='neon alt list_row'>DevOps</Link>
+          </div>
+          <div className="question_row">
+            <Link to={"/linux_score"} className='neon alt list_row'>Linux</Link>
+            <Link to={"/cloud_score"} className='neon alt list_row'>Cloud</Link>
+          </div>
+          <div className="question_row">
+            <Link to={"/networking_score"} className='neon alt list_row'>Network</Link>
+            <Link to={"/programming_score"} className='neon alt list_row'>Programming</Link>
+          </div>
+          <div className="question_row">
+            <Link to={"/menu"} className='neon alt list_row'>Menu</Link>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }

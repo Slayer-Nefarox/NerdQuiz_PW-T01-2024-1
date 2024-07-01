@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useState, useContext  } from 'react'
 import { Link } from "react-router-dom";
-import { auth } from "../../firebaseConnection";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../../Contexts/auth';
 
-export default function Menu() 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+export default function Register() 
+
 {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
+
+    const { register, loadingAuth } = useContext(AuthContext);
 
     // Função que é executada quando o formulário é submetido para cadastrar um novo usuário no sistema
     async function handleRegister(e) {
@@ -16,35 +20,22 @@ export default function Menu()
 
         // verifica se os campos email e password foram preenchidos
         if (email !== "" && password !== "") {
-        // cria um novo usuário no sistema
-        await createUserWithEmailAndPassword(auth, email, password)
-            .then(() => {
-            // se o usuário foi criado com sucesso, redireciona para a rota /admin da aplicação
-            navigate("/admin", { replace: true });
-            toast.success("Bem-Vindo ao Sistema!", {
-                position: "top-right",
-            });
-            })
-            .catch(() => {
-            // se ocorreu algum erro ao criar o usuário, exibe uma mensagem de erro
-            console.log("ERRO AO FAZER O CADASTRO");
-            toast.error();("Erro ao Fazer Cadastro!", {
-                position: "top-right",
-            });
-            });
-        } else {
-        // Caso os campos email e password não tenham sido preenchidos, exibe uma mensagem de erro
-        alert("Preencha todos os campos!");
-        toast.warn("Preencha todos os campos!", {
-            position: "top-right",
-        });
+            await register(email, password,name)
         }
     }
 
     return (
-        <div class="neon column center">
-            <h2 class="texto" id="registro">NerdQuiz</h2>
+        <div className="neon column center">
+            <ToastContainer />
+            <h2 className="texto" id="registro">NerdQuiz</h2>
             <form className="form" onSubmit={handleRegister}>
+                <input 
+                type="text" 
+                placeholder="Seu nome"
+                value={name}
+                onChange={ (e) => setName(e.target.value) }
+                />
+                
                 <input
                 type="text"
                 placeholder="Digite seu email..."
@@ -59,8 +50,9 @@ export default function Menu()
                 onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <button type="submit">Cadastrar</button>
+                <button type="submit">{loadingAuth ? 'Carregando...' : 'Cadastrar'}</button>
             </form>
+            <Link to="/login">Login</Link>
         </div>
     )
 }
