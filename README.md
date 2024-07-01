@@ -6,6 +6,6 @@ Trabalho Prog Web 2024/1
 ##Como Usar:
 -Extrair para pasta desejada
 -Abrir com terminal do Ubuntu (wsl) na pasta raiz do projeto
--Executar: "npm install firebase", "npm install react-router-dom", "npm install react-toastify" e "npm i".
+-Executar: "npm install firebase", "npm install react-router-dom", "npm install react-toastify", "npm install axios" e "npm i".
 -Executar: "npm run dev".
 -Testar seu conhecimento!
